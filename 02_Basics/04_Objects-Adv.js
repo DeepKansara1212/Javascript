@@ -49,13 +49,59 @@ const users = [
 ] 
 
 users[1].email
-console.log(tinderUser);
+// console.log(tinderUser);
 
 
 // Interesting
-console.log(Object.keys(tinderUser));               // type: Array
-console.log(Object.values(tinderUser));             // type: Array
-console.log(Object.entries(tinderUser));
+// console.log(Object.keys(tinderUser));               // type: Array
+// console.log(Object.values(tinderUser));             // type: Array
+// console.log(Object.entries(tinderUser));
 
 
-console.log(tinderUser.hasOwnProperty('isLoggedIn'));
+// console.log(tinderUser.hasOwnProperty('isLoggedIn'));
+
+
+// Object Destructuring
+
+const course = {
+    courseName: "Javascript",
+    coursePrice: 9999,
+    courseInstructor: "ABC"
+}
+
+// course.courseInstructor
+
+const {courseInstructor: instructor} = course
+// console.log(courseInstructor);
+console.log(instructor);
+
+
+/*
+REACT concept
+
+const navbar = ({company}) => {
+
+}
+navbar(company = "XYZ")
+*/
+
+
+// JSON API
+
+/*
+=> APIs are available in arrays & objects both
+
+1) In Object
+{
+    "name": "Deep",
+    "courseName": "Python",
+    "price": "free"
+}
+
+2) In Array
+[
+    {},
+    {}
+]
+
+*/
