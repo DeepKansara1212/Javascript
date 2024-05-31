@@ -76,15 +76,6 @@ const {courseInstructor: instructor} = course
 console.log(instructor);
 
 
-/*
-REACT concept
-
-const navbar = ({company}) => {
-
-}
-navbar(company = "XYZ")
-*/
-
 
 // JSON API
 
