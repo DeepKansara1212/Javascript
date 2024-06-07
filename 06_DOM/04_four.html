@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #ffff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+
+    // Here when we add the text through innerHTML an extra space would be generated & for that extra traversing is applied. So this is not a good way to do that.
+    function addLangauge(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLangauge("Python") 
+    addLangauge("Typescript") 
+    addLangauge("Java") 
+
+
+    // Optimize way to add an element
+    function addOptiLanguage(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName)) 
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage("C++")
+    addOptiLanguage("golang")
+    
+    
+    // Edit an element
+    // 1)
+    const nthLang = document.querySelector('li:nth-child(6)')
+    // nthLang.innerHTML = 'Rust'
+    const newli = document.createElement('li')
+    newli.textContent = "Rust"
+    nthLang.replaceWith(newli) 
+
+
+    // 2)
+    const firstlang = document.querySelector('li:first-child')
+    firstlang.outerHTML = "<li>C</li>"
+
+
+    // Remove an Element
+    const lastlang = document.querySelector('li:last-child')
+    lastlang.remove() 
+</script>
+</html>
