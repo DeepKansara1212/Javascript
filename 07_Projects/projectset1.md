@@ -47,6 +47,7 @@ form.addEventListener('submit', function(e){
   const height = parseInt(document.querySelector('#height').value) 
   const weight = parseInt(document.querySelector('#weight').value) 
   const results = document.querySelector('#results')
+  const weightGuide = document.querySelector('#weight-guide')
 
   if(height === '' || height < 0 || isNaN(height)){
     results.innerHTML = `Please give a valid height ${height}.`;
@@ -55,13 +56,35 @@ form.addEventListener('submit', function(e){
   } else {
     const bmi = (weight / ((height * height)/10000).toFixed(2))
 
-    // Show the results
-    results.innerHTML = `<span>${bmi}</span>`
+  // Show the results
+  results.innerHTML = `<span>${bmi}</span>`
+
+  if (results < 18.6){
+    weightGuide.innerHTML = "Under Weight"
+  } else if (1806 < results < 24.9){
+    weightGuide.innerHTML = "Normal Range"
+  } else {
+    weightGuide.innerHTML = "Overweight"
+  }
   }
 }) 
 ```
 
 ## Project 3 -> Digital Clock
+```Javascript
+const clock = document.getElementById('clock') 
+// document.querySelector('clock')
+// Both are same
+
+
+setInterval(function(){
+  let date = new Date()
+  // console.log(date.toLocaleTimeString()) 
+  clock.innerHTML = date.toLocaleTimeString() 
+}, 1000) 
+```
+
+## Project 4 -> Guess The Number
 ```Javascript
 
 ```
