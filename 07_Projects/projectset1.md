@@ -191,3 +191,71 @@ function newGame(){
 } 
 
 ```
+
+## Project 5 -> Unlimited Colors
+```Javascript
+// Generate a random color
+
+const randomColor = function(){
+  const hex = "0123456789ABCDEF"
+  let color = '#'
+
+  // For loop is for to display the color in #FFFFFF format.
+  for(let i=0; i<6; i++){
+    color += hex[Math.floor(Math.random() * 16)]
+  }
+  return color
+}
+// console.log(randomColor()) 
+
+
+let intervalId
+// To start the changing color
+const startChangingColor = function(){
+  if (!intervalId){
+    intervalId = setInterval(changeBgColor, 1000)
+  }
+
+  function changeBgColor(){
+    document.body.style.backgroundColor = randomColor()
+  }
+   
+}
+
+// To stop the changing color
+const stopChangingColor = function(){
+  clearInterval(intervalId);
+  intervalId = null
+  // Here we overwrite the intervalId many times, So for that we add interval as null. 
+    // After adding this statement, we got the error like we can start the color change but it can't stop. So for that we add if statement in the startChangingColor function. 
+}
+
+document.querySelector("#start").addEventListener('click', startChangingColor)
+
+document.querySelector("#stop").addEventListener('click', stopChangingColor) 
+
+```
+
+## Project 6 -> Keyboard Check
+```Javascript
+const insert = document.getElementById('insert')
+
+window.addEventListener('keydown', (e) => {
+  insert.innerHTML = `
+    <div class = "color">
+      <table>
+      <tr>
+        <th>Key</th>
+        <th>Keycode</th>
+        <th>Code</th>
+      </tr>
+      <tr>
+        <td>${e.key === ' ' ? "Space": e.key}</td>
+        <td>${e.keyCode}</td>
+        <td>${e.code}</td>
+      </tr>
+      </table>
+    </div>
+  `
+})
+```
