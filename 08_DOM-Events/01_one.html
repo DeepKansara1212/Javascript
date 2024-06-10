@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }
+
+    // Events: (For self-study & Interview)
+        // type, timestamp, defaultPrevented
+        // target, toElement, srcElement, currentTarget
+        // clientX, clientY, offset, screenX, screenY
+        // altkey, ctrlkey, shiftkey, keycode
+
+
+    // Third parameter in the function block is event propogation
+    // By default, it's value is false
+    // document.addEventListener('', (e) => {}, false)
+
+    // Event Propogation is done in 2 ways:
+
+    // 1) Event Bubbling: Bottom to Top
+        // For any bigger element, always access the inner element first & after that it goes towards the outer elements.
+    document.getElementById('images').addEventListener('click', function(e){
+        // console.log("Click inside the ul");
+    }, false) 
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        // console.log("Owl Clicked");
+        // e.stopPropagation()
+        // stopPropagation will stop the propagation of the event.
+    }, false) 
+
+
+    // 2) Capturing Mode: Top to Bottom
+        // For any bigger element, always access the outer element first & after that it goes towards the inner elements.
+    /*
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Click inside the ul");
+    }, true) 
+
+    document.getElementById('japan').addEventListener('click', function(e){
+        console.log("Japan Clicked");
+    }, true) 
+    */
+
+
+    document.getElementById('google').addEventListener('click', function(e){
+        // e.preventDefault() 
+        // console.log("Google Clicked") 
+    })
+
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);   
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+        // removeIt.parentNode.removeChild(removeIt)
+    })
+    
+    // Refer this: 
+        // https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
+</script>
+</html>
