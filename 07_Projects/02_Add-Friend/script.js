@@ -16,4 +16,4 @@ btn.addEventListener('click', () => {
         btn.textContent = "Add Friend"
         flag = 0
     }
-}) 
+})  
